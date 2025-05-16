@@ -37,7 +37,9 @@
                 die('<div class="error">安装脚本文件(view/install.sql)不存在</div>');
             }
             
+            // 添加表前缀处理
             $sql = file_get_contents($sql_file);
+            $sql = str_replace('{{prefix}}', $db_config['prefix'], $sql);
             if ($conn->multi_query($sql) === false): ?>
                 <div class="error">
                     数据库初始化失败: <?php echo $conn->error; ?>
@@ -49,9 +51,9 @@
                 $email = $_POST['admin_email'];
                 
                 // 检查表是否存在
-                $tableCheck = $conn->query("SHOW TABLES LIKE 'administrators'");
+                $tableCheck = $conn->query("SHOW TABLES LIKE '{$db_config['prefix']}administrators'");
                 if ($tableCheck && $tableCheck->num_rows > 0) {
-                    $stmt = $conn->prepare("INSERT INTO administrators (username, password, email) VALUES (?, ?, ?)");
+                    $stmt = $conn->prepare("INSERT INTO {$db_config['prefix']}administrators (username, password, email) VALUES (?, ?, ?)");
                     if ($stmt) {
                         $stmt->bind_param("sss", $username, $password, $email);
                         
@@ -81,6 +83,7 @@
                     $config_content .= "define('DB_USER', '{$db_config['user']}');\n";
                     $config_content .= "define('DB_PASS', '{$db_config['pass']}');\n";
                     $config_content .= "define('DB_NAME', '{$db_config['name']}');\n";
+                    $config_content .= "define('DB_PREFIX', '{$db_config['prefix']}');\n";
                     file_put_contents(INSTALL_ROOT . '/config/datebase.php', $config_content);
                     
                     // 完成安装

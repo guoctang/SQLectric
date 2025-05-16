@@ -28,6 +28,7 @@
             $db_user = $_POST['db_user'];
             $db_pass = $_POST['db_pass'];
             $db_name = $_POST['db_name'];
+            $db_prefix = $_POST['db_prefix'];
             
             // 测试数据库连接
             $conn = @new mysqli($db_host, $db_user, $db_pass, $db_name);
@@ -42,7 +43,8 @@
                     'host' => $db_host,
                     'user' => $db_user,
                     'pass' => $db_pass,
-                    'name' => $db_name
+                    'name' => $db_name,
+                    'prefix' => $db_prefix
                 ];
                 header('Location: ?step=4');
                 exit;
@@ -50,6 +52,12 @@
         <?php endif; ?>
 
         <form method="post">
+            <div class="form-group">
+                <label for="db_prefix">数据表前缀:</label>
+                <input type="text" id="db_prefix" name="db_prefix" value="SQLectric_" required>
+                <small style="color:#666">用于区别同一数据库中的多个应用</small>
+            </div>
+
             <div class="form-group">
                 <label for="db_host">数据库主机:</label>
                 <input type="text" id="db_host" name="db_host" value="localhost" required>
