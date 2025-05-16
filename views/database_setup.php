@@ -57,6 +57,8 @@
                 ];
                 file_put_contents(dirname(__DIR__).'/config/database.php', '<?php return '.var_export($config, true).';');
                 
+                // 更新安装步骤为4(管理员设置)
+                $_SESSION['install_step'] = 4;
                 header('Location: ?step=4');
                 exit;
             endif; ?>

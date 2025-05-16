@@ -1,3 +1,9 @@
+<?php
+if (!(file_exists(INSTALL_ROOT . '/config/install.lock') && file_exists(INSTALL_ROOT . '/config/database.php'))) {//step为完成页面
+    header('Location: ?step=1');
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +23,7 @@
 </head>
 <body>
     <div class="success">✓ 系统安装成功</div>
-    <p>数据库配置已保存到 config/database.php</p>
-    <a href="admin.php" class="btn">进入管理后台</a>
+    <a href="/admin.php" class="btn">进入后台</a>
+    <a href="/" class="btn">查看前台</a>
 </body>
 </html>

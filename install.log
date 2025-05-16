@@ -1,0 +1,555 @@
+Executing SQL:
+-- 创建数据库表结构
+
+-- 管理员表
+CREATE TABLE IF NOT EXISTS `rrr_administrators` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `username` (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- 示例数据表
+CREATE TABLE IF NOT EXISTS `rrr_example_data` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `description` text,
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- 插入示例数据
+INSERT INTO `rrr_example_data` (`name`, `description`, `status`) VALUES
+('示例项目1', '这是一个示例数据', 1),
+('示例项目2', '另一个示例数据', 1);
+
+-- 创建初始权限表
+CREATE TABLE IF NOT EXISTS `rrr_permissions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- 初始权限数据
+INSERT INTO `rrr_permissions` (`name`, `description`) VALUES
+('admin', '管理员'),
+('user', '用户');
+Existing Tables:
+Array
+(
+    [0] => Array
+        (
+            [0] => administrators
+        )
+
+    [1] => Array
+        (
+            [0] => cyd_administrators
+        )
+
+    [2] => Array
+        (
+            [0] => cyd_example_data
+        )
+
+    [3] => Array
+        (
+            [0] => cyd_permissions
+        )
+
+    [4] => Array
+        (
+            [0] => example_data
+        )
+
+    [5] => Array
+        (
+            [0] => gct_administrators
+        )
+
+    [6] => Array
+        (
+            [0] => gct_example_data
+        )
+
+    [7] => Array
+        (
+            [0] => gct_permissions
+        )
+
+    [8] => Array
+        (
+            [0] => permissions
+        )
+
+    [9] => Array
+        (
+            [0] => rrr_administrators
+        )
+
+    [10] => Array
+        (
+            [0] => rrr_example_data
+        )
+
+    [11] => Array
+        (
+            [0] => rrr_permissions
+        )
+
+    [12] => Array
+        (
+            [0] => sql_administrators
+        )
+
+    [13] => Array
+        (
+            [0] => sql_example_data
+        )
+
+    [14] => Array
+        (
+            [0] => sql_permissions
+        )
+
+    [15] => Array
+        (
+            [0] => sqlectric_administrators
+        )
+
+    [16] => Array
+        (
+            [0] => sqlectric_example_data
+        )
+
+    [17] => Array
+        (
+            [0] => sqlectric_permissions
+        )
+
+)
+Executing SQL:
+-- 创建数据库表结构
+
+-- 管理员表
+CREATE TABLE IF NOT EXISTS `rrr_administrators` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `username` (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- 示例数据表
+CREATE TABLE IF NOT EXISTS `rrr_example_data` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `description` text,
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- 插入示例数据
+INSERT INTO `rrr_example_data` (`name`, `description`, `status`) VALUES
+('示例项目1', '这是一个示例数据', 1),
+('示例项目2', '另一个示例数据', 1);
+
+-- 创建初始权限表
+CREATE TABLE IF NOT EXISTS `rrr_permissions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- 初始权限数据
+INSERT INTO `rrr_permissions` (`name`, `description`) VALUES
+('admin', '管理员'),
+('user', '用户');
+Existing Tables:
+Array
+(
+    [0] => Array
+        (
+            [0] => administrators
+        )
+
+    [1] => Array
+        (
+            [0] => cyd_administrators
+        )
+
+    [2] => Array
+        (
+            [0] => cyd_example_data
+        )
+
+    [3] => Array
+        (
+            [0] => cyd_permissions
+        )
+
+    [4] => Array
+        (
+            [0] => example_data
+        )
+
+    [5] => Array
+        (
+            [0] => gct_administrators
+        )
+
+    [6] => Array
+        (
+            [0] => gct_example_data
+        )
+
+    [7] => Array
+        (
+            [0] => gct_permissions
+        )
+
+    [8] => Array
+        (
+            [0] => permissions
+        )
+
+    [9] => Array
+        (
+            [0] => rrr_administrators
+        )
+
+    [10] => Array
+        (
+            [0] => rrr_example_data
+        )
+
+    [11] => Array
+        (
+            [0] => rrr_permissions
+        )
+
+    [12] => Array
+        (
+            [0] => sql_administrators
+        )
+
+    [13] => Array
+        (
+            [0] => sql_example_data
+        )
+
+    [14] => Array
+        (
+            [0] => sql_permissions
+        )
+
+    [15] => Array
+        (
+            [0] => sqlectric_administrators
+        )
+
+    [16] => Array
+        (
+            [0] => sqlectric_example_data
+        )
+
+    [17] => Array
+        (
+            [0] => sqlectric_permissions
+        )
+
+)
+Executing SQL:
+-- 创建数据库表结构
+
+-- 管理员表
+CREATE TABLE IF NOT EXISTS `rrr_administrators` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `username` (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- 示例数据表
+CREATE TABLE IF NOT EXISTS `rrr_example_data` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `description` text,
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- 插入示例数据
+INSERT INTO `rrr_example_data` (`name`, `description`, `status`) VALUES
+('示例项目1', '这是一个示例数据', 1),
+('示例项目2', '另一个示例数据', 1);
+
+-- 创建初始权限表
+CREATE TABLE IF NOT EXISTS `rrr_permissions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- 初始权限数据
+INSERT INTO `rrr_permissions` (`name`, `description`) VALUES
+('admin', '管理员'),
+('user', '用户');
+Existing Tables:
+Array
+(
+    [0] => Array
+        (
+            [0] => administrators
+        )
+
+    [1] => Array
+        (
+            [0] => cyd_administrators
+        )
+
+    [2] => Array
+        (
+            [0] => cyd_example_data
+        )
+
+    [3] => Array
+        (
+            [0] => cyd_permissions
+        )
+
+    [4] => Array
+        (
+            [0] => example_data
+        )
+
+    [5] => Array
+        (
+            [0] => gct_administrators
+        )
+
+    [6] => Array
+        (
+            [0] => gct_example_data
+        )
+
+    [7] => Array
+        (
+            [0] => gct_permissions
+        )
+
+    [8] => Array
+        (
+            [0] => permissions
+        )
+
+    [9] => Array
+        (
+            [0] => rrr_administrators
+        )
+
+    [10] => Array
+        (
+            [0] => rrr_example_data
+        )
+
+    [11] => Array
+        (
+            [0] => rrr_permissions
+        )
+
+    [12] => Array
+        (
+            [0] => sql_administrators
+        )
+
+    [13] => Array
+        (
+            [0] => sql_example_data
+        )
+
+    [14] => Array
+        (
+            [0] => sql_permissions
+        )
+
+    [15] => Array
+        (
+            [0] => sqlectric_administrators
+        )
+
+    [16] => Array
+        (
+            [0] => sqlectric_example_data
+        )
+
+    [17] => Array
+        (
+            [0] => sqlectric_permissions
+        )
+
+)
+Executing SQL:
+-- 创建数据库表结构
+
+-- 管理员表
+CREATE TABLE IF NOT EXISTS `33333_administrators` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `username` (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- 示例数据表
+CREATE TABLE IF NOT EXISTS `33333_example_data` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `description` text,
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- 插入示例数据
+INSERT INTO `33333_example_data` (`name`, `description`, `status`) VALUES
+('示例项目1', '这是一个示例数据', 1),
+('示例项目2', '另一个示例数据', 1);
+
+-- 创建初始权限表
+CREATE TABLE IF NOT EXISTS `33333_permissions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- 初始权限数据
+INSERT INTO `33333_permissions` (`name`, `description`) VALUES
+('admin', '管理员'),
+('user', '用户');
+Existing Tables:
+Array
+(
+    [0] => Array
+        (
+            [0] => 33333_administrators
+        )
+
+    [1] => Array
+        (
+            [0] => 33333_example_data
+        )
+
+    [2] => Array
+        (
+            [0] => 33333_permissions
+        )
+
+    [3] => Array
+        (
+            [0] => administrators
+        )
+
+    [4] => Array
+        (
+            [0] => cyd_administrators
+        )
+
+    [5] => Array
+        (
+            [0] => cyd_example_data
+        )
+
+    [6] => Array
+        (
+            [0] => cyd_permissions
+        )
+
+    [7] => Array
+        (
+            [0] => example_data
+        )
+
+    [8] => Array
+        (
+            [0] => gct_administrators
+        )
+
+    [9] => Array
+        (
+            [0] => gct_example_data
+        )
+
+    [10] => Array
+        (
+            [0] => gct_permissions
+        )
+
+    [11] => Array
+        (
+            [0] => permissions
+        )
+
+    [12] => Array
+        (
+            [0] => rrr_administrators
+        )
+
+    [13] => Array
+        (
+            [0] => rrr_example_data
+        )
+
+    [14] => Array
+        (
+            [0] => rrr_permissions
+        )
+
+    [15] => Array
+        (
+            [0] => sql_administrators
+        )
+
+    [16] => Array
+        (
+            [0] => sql_example_data
+        )
+
+    [17] => Array
+        (
+            [0] => sql_permissions
+        )
+
+    [18] => Array
+        (
+            [0] => sqlectric_administrators
+        )
+
+    [19] => Array
+        (
+            [0] => sqlectric_example_data
+        )
+
+    [20] => Array
+        (
+            [0] => sqlectric_permissions
+        )
+
+)

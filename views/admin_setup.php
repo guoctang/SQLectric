@@ -35,7 +35,7 @@
             $sql_file = INSTALL_ROOT . '/views/install.sql';
             if (!file_exists($sql_file)) {
                 die('<div class="error">安装脚本文件（view/install.sql）不存在</div>');
-            }
+            } 
             
             // 添加表前缀处理
             $sql = file_get_contents($sql_file);
@@ -74,6 +74,12 @@
                         $stmt->bind_param("sss", $username, $password, $email);
                         
                         if ($stmt->execute()) {
+                            // 写入安装锁定文件
+                            file_put_contents(INSTALL_ROOT.'/config/install.lock', date('Y-m-d H:i:s'));
+                            // 跳转到安装完成页面
+                            $_SESSION['install_step'] = 5;
+                            header('Location: ?step=5');
+                            exit;
                         } else { ?>
                             <div class="error">
                                 管理员账户创建失败: <?php echo $stmt->error; ?>
@@ -99,19 +105,7 @@
                     $config_content .= "define('DB_NAME', '{$db_config['name']}');\n";
                     $config_content .= "define('DB_PREFIX', '{$db_config['prefix']}');\n";
                     file_put_contents(INSTALL_ROOT . '/config/datebase.php', $config_content);
-                    
-                    // 完成安装
-                    unlink(__FILE__); // 删除安装文件
-                    ?>
-                    <div class="success">
-                        安装成功！系统已准备就绪。
-                    </div>
-                    <script>
-                        setTimeout(function() {
-                            window.location.href = '../';
-                        }, 3000);
-                    </script>
-                <?php }
+                }
                 $conn->close();
             } ?>
         <?php } ?>

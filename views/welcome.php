@@ -1,3 +1,4 @@
+<?php $_SESSION['install_step'] = 2;  ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,7 +24,10 @@
         </ol>
     </div>
     <div class="actions">
-        <a href="?step=2" class="btn">开始安装 →</a>
+        <form method="post" action="?step=2">
+            <input type="hidden" name="welcome_complete" value="1">
+            <button type="submit" class="btn">开始安装 →</button>
+        </form>
     </div>
 </body>
 </html>

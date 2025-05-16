@@ -52,6 +52,8 @@
             <div class="error" style="padding: 10px; margin-top: 15px;">
                 请解决所有错误检查项后再继续安装
             </div>
+        <?php else:?>
+            <?php $_SESSION['install_step'] = 3;  ?>
         <?php endif; ?>
     </div>
 
