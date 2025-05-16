@@ -22,8 +22,8 @@
 <body>
     <h1>管理员账户设置</h1>
     <div class="content">
-        <?php if ($_SERVER['REQUEST_METHOD'] === 'POST'): ?>
-            <?php
+        <?php if ($_SERVER['REQUEST_METHOD'] === 'POST') { ?>
+            <?php0
             // 获取数据库配置
             $db_config = $_SESSION['db_config'];
             $conn = new mysqli($db_config['host'], $db_config['user'], $db_config['pass'], $db_config['name']);
@@ -32,7 +32,7 @@
             }
             
             // 执行SQL脚本
-            $sql_file = INSTALL_ROOT . '/view/install.sql';
+            $sql_file = INSTALL_ROOT . '/views/install.sql';
             if (!file_exists($sql_file)) {
                 die('<div class="error">安装脚本文件(view/install.sql)不存在</div>');
             }
@@ -40,11 +40,11 @@
             // 添加表前缀处理
             $sql = file_get_contents($sql_file);
             $sql = str_replace('{{prefix}}', $db_config['prefix'], $sql);
-            if ($conn->multi_query($sql) === false): ?>
+            if ($conn->multi_query($sql) === false) { ?>
                 <div class="error">
                     数据库初始化失败: <?php echo $conn->error; ?>
                 </div>
-            <?php else: 
+            <?php } else {
                 // 创建管理员账户
                 $username = $_POST['admin_user'];
                 $password = password_hash($_POST['admin_pass'], PASSWORD_DEFAULT);
@@ -57,26 +57,24 @@
                     if ($stmt) {
                         $stmt->bind_param("sss", $username, $password, $email);
                         
-                        if ($stmt->execute()):
-                        else: ?>
+                        if ($stmt->execute()) {
+                        } else { ?>
                             <div class="error">
                                 管理员账户创建失败: <?php echo $stmt->error; ?>
                             </div>
                         <?php
-                        endif;
+                        }
                         $stmt->close();
                     } else { ?>
                         <div class="error">
                             SQL预处理失败: <?php echo $conn->error; ?>
                         </div>
                     <?php }
-                } else { ?>
+                } elseif (!isset($error)) { ?>
                     <div class="error">
                         administrators表不存在，请检查SQL脚本是否执行成功
                     </div>
-                <?php }
-
-                if (!isset($error)) {
+                <?php } else {
                     // 保存数据库配置
                     $config_content = "<?php\n";
                     $config_content .= "define('DB_HOST', '{$db_config['host']}');\n";
@@ -97,14 +95,10 @@
                             window.location.href = '../';
                         }, 3000);
                     </script>
-                <?php else: ?>
-                    <div class="error">
-                        管理员账户创建失败: <?php echo $conn->error; ?>
-                    </div>
-                <?php endif; 
+                <?php }
                 $conn->close();
-            endif; ?>
-        <?php endif; ?>
+            } ?>
+        <?php } ?>
 
         <form method="post">
             <div class="form-group">
