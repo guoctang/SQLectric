@@ -23,7 +23,7 @@
     <h1>管理员账户设置</h1>
     <div class="content">
         <?php if ($_SERVER['REQUEST_METHOD'] === 'POST') { ?>
-            <?php0
+            <?php
             // 获取数据库配置
             $db_config = $_SESSION['db_config'];
             $conn = new mysqli($db_config['host'], $db_config['user'], $db_config['pass'], $db_config['name']);
@@ -40,6 +40,9 @@
             // 添加表前缀处理
             $sql = file_get_contents($sql_file);
             $sql = str_replace('{{prefix}}', $db_config['prefix'], $sql);
+            // 日志输出SQL检查替换结果
+            file_put_contents(INSTALL_ROOT . '/install.log', "Executing SQL:\n" . $sql, FILE_APPEND);
+            
             if ($conn->multi_query($sql) === false) { ?>
                 <div class="error">
                     数据库初始化失败: <?php echo $conn->error; ?>
@@ -50,7 +53,20 @@
                 $password = password_hash($_POST['admin_pass'], PASSWORD_DEFAULT);
                 $email = $_POST['admin_email'];
                 
+                // 获取数据库配置并重新连接
+                $db_config = $_SESSION['db_config'];
+                $conn = new mysqli($db_config['host'], $db_config['user'], $db_config['pass'], $db_config['name']);
+                if ($conn->connect_error) {
+                    die("<div class='error'>数据库连接失败: " . $conn->connect_error . "</div>");
+                }
+                
                 // 检查表是否存在
+                $tables = $conn->query("SHOW TABLES");
+                if (!$tables) {
+                    die("<div class='error'>数据库查询失败: " . $conn->error . "</div>");
+                }
+                file_put_contents(INSTALL_ROOT . '/install.log', "\nExisting Tables:\n" . print_r($tables->fetch_all(), true), FILE_APPEND);
+                
                 $tableCheck = $conn->query("SHOW TABLES LIKE '{$db_config['prefix']}administrators'");
                 if ($tableCheck && $tableCheck->num_rows > 0) {
                     $stmt = $conn->prepare("INSERT INTO {$db_config['prefix']}administrators (username, password, email) VALUES (?, ?, ?)");

@@ -46,6 +46,17 @@
                     'name' => $db_name,
                     'prefix' => $db_prefix
                 ];
+                
+                // 保存配置到文件
+                $config = [
+                    'host' => $db_host,
+                    'username' => $db_user,
+                    'password' => $db_pass,
+                    'database' => $db_name,
+                    'prefix' => $db_prefix
+                ];
+                file_put_contents(dirname(__DIR__).'/config/database.php', '<?php return '.var_export($config, true).';');
+                
                 header('Location: ?step=4');
                 exit;
             endif; ?>

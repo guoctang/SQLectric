@@ -5,7 +5,7 @@ session_start();
 define('INSTALL_ROOT', dirname(__FILE__));
 
 // 安全检查 - 防止直接访问视图文件
-$allowed_steps = [1, 2, 3, 4];
+$allowed_steps = [1, 2, 3, 4, 5];
 $request_step = isset($_GET['step']) ? (int)$_GET['step'] : 1;
 if (!in_array($request_step, $allowed_steps)) {
     header('Location: ?step=1');
@@ -39,6 +39,9 @@ switch ($step) {
         break;
     case 4:
         include 'views/admin_setup.php';
+        break;
+    case 5:
+        include 'views/complete.php';
         break;
     default:
         header('Location: ?step=1');
