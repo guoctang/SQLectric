@@ -1,13 +1,12 @@
 # SQLectric
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/Version-1.0.0-green.svg)]()
 
 一个普普通通的PHP数据库安装向导程序
 
 ## 功能特性
 - 友好的安装向导界面
-- 系统需求检测
-- 自动化数据库配置
+- 系统环境检测
+- 自动化数据库信息配置
 - 管理员账户设置
 - 我编不下去了
 - 其他功能...
@@ -18,17 +17,13 @@
 - Web服务器(Apache/Nginx)
 
 ## 安装步骤
-1. 上传所有文件到您的Web服务器
+1. 上传所有文件到你的Web服务器
 2. 访问 `install.php`
 3. 按照安装向导完成配置
 4. 完成后删除安装目录
 
 ## 使用方法
-安装完成后，您可以通过以下方式使用：
-
-- 访问管理员界面
-- 管理数据库设置
-- 更新系统配置
+你可以把它集成到你的项目里使用
 
 ## 关于我
 - 作者: [陈延德](https://www.chenyande.com)
