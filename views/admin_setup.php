@@ -34,7 +34,7 @@
             // 执行SQL脚本
             $sql_file = INSTALL_ROOT . '/views/install.sql';
             if (!file_exists($sql_file)) {
-                die('<div class="error">安装脚本文件(view/install.sql)不存在</div>');
+                die('<div class="error">安装脚本文件（view/install.sql）不存在</div>');
             }
             
             // 添加表前缀处理

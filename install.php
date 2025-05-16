@@ -13,8 +13,8 @@ if (!in_array($request_step, $allowed_steps)) {
 }
 
 // 第一步：检查是否已安装
-if (file_exists(INSTALL_ROOT . '/config/datebase.php')) {
-    die('请勿重复安装');
+if (file_exists(INSTALL_ROOT . '/config/database.php')) {
+    die('请勿重复安装<br>如果需要重新安装，请删除 config/database.php 文件');
 }
 
 // // 检查是否跳过了步骤

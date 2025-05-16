@@ -36,5 +36,5 @@ CREATE TABLE IF NOT EXISTS `{{prefix}}permissions` (
 
 -- 初始权限数据
 INSERT INTO `{{prefix}}permissions` (`name`, `description`) VALUES
-('admin', '管理员权限'),
-('user', '普通用户权限');
+('admin', '管理员'),
+('user', '用户');
