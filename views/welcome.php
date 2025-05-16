@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>数据库安装向导 - 欢迎</title>
+    <title>SQLectric数据库安装向导 - 欢迎</title>
     <style>
         body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
         h1 { color: #333; }
