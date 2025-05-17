@@ -1,5 +1,8 @@
 # SQLectric
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Release](https://img.shields.io/badge/Release-1.0.0-blue.svg)](/releases/tag/v1.0.0)
+
+SQLectric 正式发行版 (版本 1.0.0)
 
 一个普普通通的PHP数据库安装向导程序
 
