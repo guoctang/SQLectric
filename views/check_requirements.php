@@ -16,33 +16,33 @@
     </style>
 </head>
 <body>
-    <h1>系统环境检查</h1>
+    <h1>检查系统环境</h1>
     <div class="content">
         <?php
-        $allPassed = true;
-        
-        // PHP版本检查
-        $phpVersion = phpversion();
-        $phpPassed = version_compare($phpVersion, '7.0.0', '>=');
-        $allPassed = $allPassed && $phpPassed;
+            $allPassed = true;
+            
+            // PHP版本检查
+            $phpVersion = phpversion();
+            $phpPassed = version_compare($phpVersion, '7.0.0', '>=');
+            $allPassed = $allPassed && $phpPassed;
         ?>
         <div class="check-item <?php echo $phpPassed ? 'success' : 'error'; ?>">
             PHP版本 ≥ 7.0: <?php echo $phpPassed ? "✔ 通过 ($phpVersion)" : "✘ 失败 (当前: $phpVersion)"; ?>
         </div>
 
         <?php
-        // MySQL扩展检查
-        $mysqlPassed = extension_loaded('mysqli');
-        $allPassed = $allPassed && $mysqlPassed;
+            // MySQL扩展检查
+            $mysqlPassed = extension_loaded('mysqli');
+            $allPassed = $allPassed && $mysqlPassed;
         ?>
         <div class="check-item <?php echo $mysqlPassed ? 'success' : 'error'; ?>">
             MySQLi扩展: <?php echo $mysqlPassed ? "✔ 已安装" : "✘ 未安装"; ?>
         </div>
 
         <?php
-        // 配置文件目录可写
-        $configWritable = is_writable(INSTALL_ROOT . '/config');
-        $allPassed = $allPassed && $configWritable;
+            // 配置文件目录可写
+            $configWritable = is_writable(INSTALL_ROOT . '/config');
+            $allPassed = $allPassed && $configWritable;
         ?>
         <div class="check-item <?php echo $configWritable ? 'success' : 'error'; ?>">
             config目录可写: <?php echo $configWritable ? "✔ 可写" : "✘ 不可写"; ?>

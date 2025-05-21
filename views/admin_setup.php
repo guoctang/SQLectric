@@ -19,8 +19,9 @@
         .error { color: #a94442; background: #f2dede; padding: 10px; border-radius: 4px; margin-bottom: 15px; }
     </style>
 </head>
+
 <body>
-    <h1>管理员账户设置</h1>
+    <h1>建立管理员账户</h1>
     <div class="content">
         <?php if ($_SERVER['REQUEST_METHOD'] === 'POST') { ?>
             <?php
